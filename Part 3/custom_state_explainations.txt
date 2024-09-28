@@ -1,0 +1,16 @@
+1. Add a new custom state of your own to the `ChatType` enum. Explain what the state represents and how it can be used in the chatbot.
+
+- SUMMARY (Provide a summary of the conversation so far): This type of chat requires the chatbot to summarize the conversation that has taken place so far, providing a concise overview of the discussion.
+
+2. Add your own custom `chat` node to the graph and define its abilities.
+- Tis node ability allows the SummaryChat node to respond to the user's message by providing a summary of the conversation. The respond method uses the respond_with_llm function to generate a response, which is a summary of the conversation.
+
+3. Add your custom state to the routing capabilities of the chatbot. Explain how the chatbot will route the user query to your custom chat model based on the classification.
+
+- The user sends a query to the chatbot.
+- The infer walker is triggered, which initializes the Router node and visits it.
+- Classifies the user's query using the classify method, which returns a ChatType enum value
+- The Router node then routes the query to the corresponding chat node based on the classification. 
+- The SummaryChat node is visited, and its respond method is triggered.
+- The respond method uses the respond_with_llm function to generate a response, which is a summary of the conversation so far.
+- The response is returned to the user.

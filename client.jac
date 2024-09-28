@@ -28,7 +28,7 @@ can bootstrap_frontend (token: str) {
         with st.chat_message("assistant") {
 
             # Call walker API
-            response = requests.post("http://localhost:8000/walker/interact", json={"message": prompt, "session_id": "123"},
+            response = requests.post("http://localhost:8000/walker/interact", json={"message": prompt, "session_id": "125"},
                 headers={"Authorization": f"Bearer {token}"}
             );
 
@@ -47,7 +47,7 @@ can bootstrap_frontend (token: str) {
 with entry {
 
     INSTANCE_URL = "http://localhost:8000";
-    TEST_USER_EMAIL = "test@mail.com";
+    TEST_USER_EMAIL = "test1@mail.com";
     TEST_USER_PASSWORD = "password";
 
     response = requests.post(
